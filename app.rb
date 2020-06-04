@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require_relative './lib/diary_entry'
 
 class Diary < Sinatra::Base
 
@@ -10,7 +11,7 @@ class Diary < Sinatra::Base
     erb :add_entry
   end
 
-  post '/add_entry' do
-    
+  post '/submit_entry' do
+    DiaryEntry.create(title: params['title'], entry: params['entry'])
   end
 end
