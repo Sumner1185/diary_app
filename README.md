@@ -24,4 +24,16 @@ So that I can read my previous entries
 I want to click on a title to see the full Diary Entry
 ```
 
-## Initial Domain Model Diagram
+## Initial Domain Model Diagrams
+
+### Add Entry:
+<p align="center">
+<img src=/images/add_entry_model.svg width=50%>
+</p><br><br>
+
+### View Entries:
+<p align="center">
+<img src=/images/diagram.svg width=50%>
+</p><br><br>
+
+
