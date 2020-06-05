@@ -18,6 +18,7 @@ class Diary < Sinatra::Base
 
   get '/view_entries' do
     @entries = DiaryEntry.all
+    p "hello"
     p @entries
     erb :view_entries
   end

@@ -1,3 +1,7 @@
+<ul>
 <% @entries.each do |entry| %>
- <%= entry["title"] %>
+<li>
+  <%= entry.title %>
+</li>
+  <%= entry.entry %>
 <% end %>

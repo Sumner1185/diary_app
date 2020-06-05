@@ -15,7 +15,6 @@ class DiaryEntry
 
   def self.all
     connection = PG.connect(dbname: 'diary_manager')
-    
     result = connection.exec("SELECT * FROM diary_entries")
     result.map do |hash|
       DiaryEntry.new(title: hash['title'], entry: hash['entry'])
