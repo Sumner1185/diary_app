@@ -1,9 +1,10 @@
 require 'pg'
 
 class DiaryEntry
-  attr_reader :title, :entry
+  attr_reader :title, :entry, :id
 
-  def initialize(title:, entry:)
+  def initialize(id:, title:, entry:)
+    @id = id
     @title = title
     @entry = entry
   end
@@ -17,8 +18,14 @@ class DiaryEntry
     connection = PG.connect(dbname: 'diary_manager')
     result = connection.exec("SELECT * FROM diary_entries")
     result.map do |hash|
-      DiaryEntry.new(title: hash['title'], entry: hash['entry'])
+      DiaryEntry.new(id: hash['id'], title: hash['title'], entry: hash['entry'])
     end
+  end
+
+  def self.find(id:)
+    connection = PG.connect(dbname: 'diary_manager')
+    result = connection.exec("SELECT * FROM diary_entries WHERE id = #{id};")
+    DiaryEntry.new(id: result[0]['id'], title: result[0]['title'], entry: result[0]['entry'])
   end
 
 end
