@@ -13,7 +13,7 @@ class Diary < Sinatra::Base
 
   post '/submit_entry' do
     DiaryEntry.create(title: params['title'], entry: params['entry'])
-    redirect '/'
+    redirect '/view_entries'
   end
 
   get '/view_entries' do
