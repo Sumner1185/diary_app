@@ -24,7 +24,6 @@ class Diary < Sinatra::Base
 
   get '/entry/:id' do
     @entry = DiaryEntry.find(id: params['id'])
-    p @entry
     erb :entry
   end
 end
