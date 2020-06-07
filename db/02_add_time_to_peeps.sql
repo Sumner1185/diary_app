@@ -1,0 +1,1 @@
+ALTER TABLE peep_manager ADD COLUMN time TIMESTAMP;
